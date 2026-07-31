@@ -1,14 +1,16 @@
 services:
     db:
         image: postgres
+        container_name: ciiccte-db
         environment:
+        # Temporales, en produccion debemos trabajar con variables y no hardcodear los valores
             POSTGRES_PASSWORD: labtest321
             POSTGRES_USER: dbuser
             POSTGRES_DB: labdb
         volumes:
             - db:/var/lib/postgresql/
         ports:
-        - "5432:5432"
+            - "5432:5432"
         networks:
             - db
         restart: always
