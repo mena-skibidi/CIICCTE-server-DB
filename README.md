@@ -11,9 +11,10 @@ Conjunto de scripts y setup de docker compose para generar la infraestructura de
 
 Por motivos de documentacion, este es el stack de tecnologias usado para el desarrollo de este repo
 
-- postgresql como base de datos 
+- postgresql como base de datos, corren en el puerto 5432
 - docker como runtime de contenedores
 - docker compose para el despliegue del contenedor
+- pgadmin en caso de que se requiera consultar la db de manera visual, corre en el puerto 8080
 
 ## Como iniciar la db
 
@@ -24,6 +25,7 @@ docker network create db-net
 ``` 
 
 2. Al asegurarse que si existe, la db puede ser iniciada con el siguiente comando
+
 ```
 docker compose up -d
 ```

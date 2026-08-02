@@ -1,24 +1,37 @@
 services:
-    db:
-        image: postgres
-        container_name: ciiccte-db
-        environment:
-        # Temporales, en produccion debemos trabajar con variables y no hardcodear los valores
-            POSTGRES_PASSWORD: labtest321
-            POSTGRES_USER: dbuser
-            POSTGRES_DB: labdb
-        volumes:
-            - db:/var/lib/postgresql/
-        ports:
-            - "5432:5432"
-        networks:
-            - db
-        restart: always
+  db:
+    image: postgres
+    container_name: ciiccte-db
+    environment:
+      # Temporales, en produccion debemos trabajar con variables y no hardcodear los valores
+      POSTGRES_PASSWORD: labtest321
+      POSTGRES_USER: dbuser
+      POSTGRES_DB: labdb
+    volumes:
+      - db:/var/lib/postgresql/
+    ports:
+      - "5432:5432"
+    networks:
+      - db
+    restart: always
+
+  gui:
+    image: dpage/pgadmin4:9.17
+    container_name: db-gui
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin321
+    restart: always
+    volumes:
+      - gui:/var/lib/pgadmin
+    ports:
+      - "8080:80"
 
 networks:
-    db:
-        name: db-net
-        external: true
+  db:
+    name: db-net
+    external: true
 
 volumes:
-    db:
+  db:
+  gui:
