@@ -9,7 +9,6 @@ services:
       POSTGRES_DB: labdb
     volumes:
       - db:/var/lib/postgresql/
-      - ./scripts:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
     networks:
