@@ -4,21 +4,15 @@ CREATE TABLE "roles"(
 );
 ALTER TABLE
     "roles" ADD PRIMARY KEY("id");
-CREATE TABLE "cuenta"(
-    "id" SERIAL NOT NULL,
-    "usuarios_id" INTEGER NOT NULL,
-    "rol_id" BIGINT NOT NULL
-);
-ALTER TABLE
-    "cuenta" ADD PRIMARY KEY("id");
-CREATE TABLE "usuarios"(
+CREATE TABLE "users"(
     "id" SERIAL NOT NULL,
     "username" TEXT NOT NULL,
     "nombre_completo" TEXT NOT NULL,
-    "psswrd_encriptada" TEXT NOT NULL
+    "psswrd_encriptada" TEXT NOT NULL,
+    "rol_id" BIGINT NOT NULL
 );
 ALTER TABLE
-    "usuarios" ADD PRIMARY KEY("id");
+    "users" ADD PRIMARY KEY("id");
 CREATE TABLE "containers"(
     "id" SERIAL NOT NULL,
     "nombre_container" TEXT NOT NULL,
@@ -57,18 +51,16 @@ CREATE TABLE "virtual_machines"(
 ALTER TABLE
     "virtual_machines" ADD PRIMARY KEY("id");
 ALTER TABLE
-    "workspaces" ADD CONSTRAINT "workspaces_workspace_type_id_foreign" FOREIGN KEY("workspace_type_id") REFERENCES "workspace_type"("id");
-ALTER TABLE
-    "containers" ADD CONSTRAINT "containers_volume_id_foreign" FOREIGN KEY("volume_id") REFERENCES "volumes"("id");
-ALTER TABLE
     "containers" ADD CONSTRAINT "containers_workspace_id_foreign" FOREIGN KEY("workspace_id") REFERENCES "workspaces"("id");
 ALTER TABLE
-    "cuenta" ADD CONSTRAINT "cuenta_usuarios_id_foreign" FOREIGN KEY("usuarios_id") REFERENCES "usuarios"("id");
-ALTER TABLE
-    "virtual_machines" ADD CONSTRAINT "virtual_machines_workspace_id_foreign" FOREIGN KEY("workspace_id") REFERENCES "workspaces"("id");
+    "workspaces" ADD CONSTRAINT "workspaces_workspace_type_id_foreign" FOREIGN KEY("workspace_type_id") REFERENCES "workspace_type"("id");
 ALTER TABLE
     "roles" ADD CONSTRAINT "roles_id_foreign" FOREIGN KEY("id") REFERENCES "workspaces"("allowed_roles");
 ALTER TABLE
-    "cuenta" ADD CONSTRAINT "cuenta_rol_id_foreign" FOREIGN KEY("rol_id") REFERENCES "roles"("id");
+    "virtual_machines" ADD CONSTRAINT "virtual_machines_workspace_id_foreign" FOREIGN KEY("workspace_id") REFERENCES "workspaces"("id");
 ALTER TABLE
-    "workspaces" ADD CONSTRAINT "workspaces_owner_id_foreign" FOREIGN KEY("owner_id") REFERENCES "cuenta"("id");
+    "workspaces" ADD CONSTRAINT "workspaces_owner_id_foreign" FOREIGN KEY("owner_id") REFERENCES "users"("id");
+ALTER TABLE
+    "users" ADD CONSTRAINT "users_rol_id_foreign" FOREIGN KEY("rol_id") REFERENCES "roles"("id");
+ALTER TABLE
+    "containers" ADD CONSTRAINT "containers_volume_id_foreign" FOREIGN KEY("volume_id") REFERENCES "volumes"("id");

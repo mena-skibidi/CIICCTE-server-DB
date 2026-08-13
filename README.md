@@ -1,6 +1,6 @@
 # CIICCTE-server-DB
 
-![alt text](/drawsql/drawSQL-image-export-2026-08-05.jpg)
+![alt text](/drawsql/drawSQL-image-export-2026-08-13.jpg)
 
 ## Sobre el proyecto
 
