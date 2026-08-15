@@ -9,6 +9,7 @@ CREATE TABLE "users"(
     "username" TEXT NOT NULL,
     "nombre_completo" TEXT NOT NULL,
     "psswrd_encriptada" TEXT NOT NULL,
+    "account_status" TEXT NOT NULL,
     "rol_id" BIGINT NOT NULL
 );
 ALTER TABLE

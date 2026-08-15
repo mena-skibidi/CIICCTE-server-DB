@@ -1,13 +1,11 @@
 # CIICCTE-server-DB
 
-![alt text](/drawsql/drawSQL-image-export-2026-08-13.jpg)
-
 ## Sobre el proyecto
 
-Setup de docker compose para levantar la infraestructura de la db para el proyecto de workspaces del CIICCTE
+Conjunto de scripts y setup de docker compose para generar la infraestructura de la db para el proyecto de workspaces del CIICCTE
 - Se trabaja con una network externa definida para aislar los servicios que pueden acceder a la base de datos
-- Se usa un volumen persistente para almacenar las entradas de la db
-- La db esta configurada en compose para correr en el puerto 5432 y puede ser accedida por contenedores expuestos a la red db-net o desde el mismo host usando ese puerto
+- Y se utiliza un volumen persistente para almacenar las entradas de la db
+- La db esta configurada en ompose para correr en el puerto 5432 y puede ser accedida por contenedores expuestos a la red db-net o desde el mismo host usando ese puerto
 
 ## Tech stack
 
@@ -35,4 +33,4 @@ docker compose up -d
 ## Como usar pgadmin
 
 Por default pgadmin se va a iniciar en el puerto 8080 y es accesible desde localhost:8080, para autenticarse los valores de prueba son admin@admin.com y admin321.
-Y para agregar la base de datos, se debera crear una conexion usando los valores del compose file (contrasena, nombre de la db, usuario) y para el hostname se debe poner el nombre del servicio el cual es "db"
+Y para agregar la base de datos, se debera crear una conexion usando los valores del compose file (contrasena, nombre de la db, usuario) y para el hostname se debe poner el nombre del servicio   el cual es "db"
