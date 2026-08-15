@@ -33,7 +33,11 @@ docker network create db-net
 docker compose up -d
 ```
 
+![alt text](./github/Screenshot%202026-08-15%20at%204.37.18 p.m..png)
+
 ## Como usar pgadmin
 
 Por default pgadmin se va a iniciar en el puerto 8080 y es accesible desde localhost:8080, para autenticarse los valores de prueba son admin@admin.com y admin321.
 Y para agregar la base de datos, se debera crear una conexion usando los valores del compose file (contrasena, nombre de la db, usuario) y para el hostname se debe poner el nombre del servicio   el cual es "db"
+
+![alt text](./github/Screenshot%202026-08-15%20at%204.36.12 p.m..png)
