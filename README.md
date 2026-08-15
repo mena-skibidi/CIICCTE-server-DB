@@ -1,5 +1,7 @@
 # CIICCTE-server-DB
 
+![alt text](/drawsql/drawSQL-image-export-2026-08-15.jpg)
+
 ## Sobre el proyecto
 
 Conjunto de scripts y setup de docker compose para generar la infraestructura de la db para el proyecto de workspaces del CIICCTE
