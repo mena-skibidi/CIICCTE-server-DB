@@ -17,6 +17,7 @@ Por motivos de documentacion, este es el stack de tecnologias usado para el desa
 - docker como runtime de contenedores
 - docker compose para el despliegue del contenedor
 - pgadmin en caso de que se requiera consultar la db de manera visual, corre en el puerto 8080
+- ruff para el formato y linting
 
 ## Como iniciar la db
 
