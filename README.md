@@ -33,6 +33,18 @@ docker network create db-net
 docker compose up -d
 ```
 
+Si el programa se ejecuto en modo detached (con la -d) se debera navegar al directorio y en la terminal correr lo siguiente para detener el proceso
+
+```bash
+docker compose down
+```
+
+Si se desea reiniciar el proyecto junto a los volumenes (es decir limpiar todo con perdida total de datos) esto se puede hacer con:
+
+```bash
+docker compose down -v
+```
+
 ![alt text](./github/Screenshot%202026-08-15%20at%204.37.18 p.m..png)
 
 ## Como usar pgadmin
